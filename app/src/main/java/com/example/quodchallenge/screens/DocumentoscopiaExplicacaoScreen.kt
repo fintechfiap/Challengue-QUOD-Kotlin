@@ -1,0 +1,58 @@
+package com.example.quodchallenge.screens
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import com.example.quodchallenge.R
+import com.example.quodchallenge.common.components.BarraSuperior
+import com.example.quodchallenge.common.components.BotaoModular
+
+@Composable
+fun DocumentoscopiaExplicacaoScreen(navController: NavController){
+
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier
+            .fillMaxWidth(1.0f)
+            .fillMaxHeight(1.0f)
+            .background(Color.White)
+    ) {
+    BarraSuperior("Documentoscopia")
+
+        Text(
+            text = "Envie uma foto do seu documento para validação de autenticidade. Você pode capturar uma nova foto ou selecionar uma da galeria. Certifique-se de que a imagem está legível, fundo neutro e bem iluminado para uma análise mais precisa.",
+            style = TextStyle(
+                fontSize = 20.sp,
+                lineHeight = 30.sp,
+                fontWeight = FontWeight(500),
+                color = Color(0xFF55575C),
+                textAlign = TextAlign.Center,
+            ),
+            modifier = Modifier
+                .padding(top = 44.dp)
+                .width(353.dp)
+                .height(240.dp)
+        )
+        val cameraIcon = painterResource(R.drawable.camera)
+        val docIcon = painterResource(R.drawable.doc)
+
+        BotaoModular(cameraIcon, "Tirar foto", navController, "documentoscopiaAuth")
+        BotaoModular(docIcon, "Carregar documento", navController, "carregarDocumento")
+    }
+}

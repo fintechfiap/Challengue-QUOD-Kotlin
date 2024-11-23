@@ -13,11 +13,12 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.quodchallenge.screens.BiometriaDigitalExplicacaoScreen
+import com.example.quodchallenge.screens.BiometriaFacialExplicacaoScreen
+import com.example.quodchallenge.screens.DocumentoscopiaExplicacaoScreen
 import com.example.quodchallenge.screens.ErrorScreen
 import com.example.quodchallenge.screens.FailedScreen
-import com.example.quodchallenge.screens.SuccessScreen
-import com.example.quodchallenge.screens.BiometriaFacialExplicacaoScreen
 import com.example.quodchallenge.screens.HomeScreen
+import com.example.quodchallenge.screens.SuccessScreen
 import com.example.quodchallenge.screens.ValidatingScreen
 import com.example.quodchallenge.ui.theme.QuodChallengeTheme
 
@@ -57,6 +58,9 @@ class MainActivity : ComponentActivity() {
                             }
                             composable("error") {
                                 ErrorScreen(navController = navController)
+                            }
+                            composable("documentoscopia") {
+                                DocumentoscopiaExplicacaoScreen(navController = navController)
                             }
                         }
                     }
