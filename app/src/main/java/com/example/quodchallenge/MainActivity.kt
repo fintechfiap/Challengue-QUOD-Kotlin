@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.quodchallenge.screens.BiometriaFacilExplicacaoScreen
 import com.example.quodchallenge.screens.HomeScreen
 import com.example.quodchallenge.ui.theme.QuodChallengeTheme
 
@@ -35,6 +36,9 @@ class MainActivity : ComponentActivity() {
                         ) {
                             composable("home") {
                                 HomeScreen(navController = navController)
+                            }
+                            composable("biometriaFacial") {
+                                BiometriaFacilExplicacaoScreen(navController = navController)
                             }
                         }
                     }

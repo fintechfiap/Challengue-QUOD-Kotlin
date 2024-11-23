@@ -21,7 +21,13 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 @Composable
-fun BotaoModular(icon: Painter, text: String, navController: NavController? = null, rota: String? = null){
+fun BotaoModular(
+    icon: Painter? = null,
+    text: String, navController:
+    NavController? = null,
+    rota: String? = null
+)
+{
     Button(
         onClick = {
             if (rota != null) {
@@ -37,11 +43,13 @@ fun BotaoModular(icon: Painter, text: String, navController: NavController? = nu
         Row(
             verticalAlignment = Alignment.CenterVertically
         ) {
-            Image(
-                painter = icon,
-                contentDescription = null,
-                modifier = Modifier.padding(end = 8.dp)
-            )
+            if(icon != null) {
+                Image(
+                    painter = icon,
+                    contentDescription = null,
+                    modifier = Modifier.padding(end = 8.dp)
+                )
+            }
             Text(
                 text = text,
                 style = TextStyle(
