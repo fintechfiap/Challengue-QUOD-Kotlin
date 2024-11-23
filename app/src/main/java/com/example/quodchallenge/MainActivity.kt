@@ -13,6 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.quodchallenge.screens.ErrorScreen
 import com.example.quodchallenge.screens.FailedScreen
 import com.example.quodchallenge.screens.SuccessScreen
 import com.example.quodchallenge.screens.HomeScreen
@@ -43,6 +44,9 @@ class MainActivity : ComponentActivity() {
                             }
                             composable("failed") {
                                 FailedScreen(navController = navController)
+                            }
+                            composable("error") {
+                                ErrorScreen(navController = navController)
                             }
                         }
                     }

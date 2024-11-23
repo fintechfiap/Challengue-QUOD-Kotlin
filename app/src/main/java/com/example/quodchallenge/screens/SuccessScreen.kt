@@ -60,7 +60,7 @@ fun SuccessScreen(navController: NavController) {
                 fontWeight = FontWeight.Medium,
                 color = Color(0xFF55575C),
             ),
-            modifier = Modifier.padding(top = 24.dp, bottom = 48.dp),
+            modifier = Modifier.padding(top = 24.dp, bottom = 12.dp),
             textAlign = androidx.compose.ui.text.style.TextAlign.Center
         )
 

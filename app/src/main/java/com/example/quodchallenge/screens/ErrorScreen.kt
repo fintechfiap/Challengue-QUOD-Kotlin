@@ -19,7 +19,7 @@ import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BotaoModular
 
 @Composable
-fun FailedScreen(navController: NavController) {
+fun ErrorScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxWidth(1.0f)
@@ -40,7 +40,7 @@ fun FailedScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Verificação não aprovada!",
+            text = "Ooops! Não foi possível concluir a verificação.",
             style = TextStyle(
                 fontSize = 36.sp,
                 fontWeight = FontWeight.SemiBold,
@@ -52,7 +52,7 @@ fun FailedScreen(navController: NavController) {
         )
 
         Text(
-            text = "A validação não foi aprovada. Por favor, revise as informações enviadas e tente novamente.",
+            text = "Tente novamente ou entre em contato para suporte, caso necessário.",
             style = TextStyle(
                 fontSize = 24.sp,
                 lineHeight = 30.sp,
@@ -63,10 +63,19 @@ fun FailedScreen(navController: NavController) {
             textAlign = androidx.compose.ui.text.style.TextAlign.Center
         )
 
-        BotaoModular(
-            icon = painterResource(R.drawable.retry),
-            text = "Tentar Novamente",
-            navController = navController,
-        )
+        Column(
+        ) {
+            BotaoModular(
+                icon = painterResource(R.drawable.arrow_back),
+                text = "Voltar para Home",
+                navController = navController,
+                rota = "home"
+            )
+            BotaoModular(
+                icon = painterResource(R.drawable.retry),
+                text = "Tentar Novamente",
+                navController = navController,
+            )
+        }
     }
 }
