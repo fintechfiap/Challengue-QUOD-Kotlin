@@ -33,7 +33,7 @@ fun BiometriaFacialExplicacaoScreen(navController: NavController){
             .fillMaxHeight(1.0f)
             .background(Color.White)
     ) {
-        BarraSuperior("Biometria facial")
+        BarraSuperior("Biometria Facial")
         Text(
             text = "Posicione seu rosto na câmera para realizar a validação facial. Certifique-se de que está em um ambiente bem iluminado e com um fundo neutro.",
             style = TextStyle(

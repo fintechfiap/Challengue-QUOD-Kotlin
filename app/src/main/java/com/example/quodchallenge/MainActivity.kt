@@ -12,6 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.quodchallenge.screens.BiometriaDigitalExplicacaoScreen
 import com.example.quodchallenge.screens.ErrorScreen
 import com.example.quodchallenge.screens.FailedScreen
 import com.example.quodchallenge.screens.SuccessScreen
@@ -41,6 +42,9 @@ class MainActivity : ComponentActivity() {
                             }
                             composable("biometriaFacial") {
                                 BiometriaFacialExplicacaoScreen(navController = navController)
+                            }
+                            composable("biometriaDigital") {
+                                BiometriaDigitalExplicacaoScreen(navController = navController)
                             }
                             composable("validating") {
                                 ValidatingScreen(navController = navController)
