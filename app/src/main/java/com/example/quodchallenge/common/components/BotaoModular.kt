@@ -20,7 +20,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun ModularButton(icon: Painter, text: String){
+fun BotaoModular(icon: Painter, text: String){
     Button(
         onClick = {},
         modifier = Modifier.padding(top = 36.dp).width(300.dp).height(55.dp),

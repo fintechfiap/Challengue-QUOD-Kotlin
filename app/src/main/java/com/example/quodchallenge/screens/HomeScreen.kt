@@ -21,7 +21,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quodchallenge.R
-import com.example.quodchallenge.common.components.ModularButton
+import com.example.quodchallenge.common.components.BotaoModular
 
 @Composable
 fun HomeScreen(navController : NavController) {
@@ -63,12 +63,12 @@ fun HomeScreen(navController : NavController) {
         Column(
             modifier = Modifier.padding(top = 36.dp)
         ) {
-            ModularButton(faceIcon, "Biometria facial")
-            ModularButton(fingerprintIcon, "Biometria digital")
-            ModularButton(docIcon, "Documentoscopia")
-            ModularButton(swapIcon, "SIM SWAP")
-            ModularButton(authIcon, "Autenticação cadastral")
-            ModularButton(scoreIcon, "Score Antifraude")
+            BotaoModular(faceIcon, "Biometria facial")
+            BotaoModular(fingerprintIcon, "Biometria digital")
+            BotaoModular(docIcon, "Documentoscopia")
+            BotaoModular(swapIcon, "SIM SWAP")
+            BotaoModular(authIcon, "Autenticação cadastral")
+            BotaoModular(scoreIcon, "Score Antifraude")
         }
 
     }
