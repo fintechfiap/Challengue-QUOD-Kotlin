@@ -61,17 +61,6 @@ fun HomeScreen(navController : NavController) {
         val authIcon = painterResource(R.drawable.auth)
         val scoreIcon = painterResource(R.drawable.score)
 
-        Column(
-            modifier = Modifier.padding(top = 36.dp)
-        ) {
-            BotaoModular(faceIcon, "Biometria facial", navController, "biometriaFacial")
-            BotaoModular(fingerprintIcon, "Biometria digital", navController, "biometriaDigital")
-            BotaoModular(docIcon, "Documentoscopia", navController, "documentoscopia")
-            BotaoModular(swapIcon, "SIM SWAP", navController, "simSwap")
-            BotaoModular(authIcon, "Autenticação cadastral", navController, "autenticacaoCadastral")
-            BotaoModular(scoreIcon, "Score Antifraude", navController, "scoreAntiFraude")
-        }
-
         Button( onClick = { navController.navigate("validating") }) {
             Text(text = "Navegar")
         }
@@ -87,5 +76,17 @@ fun HomeScreen(navController : NavController) {
         Button( onClick = { navController.navigate("error") }) {
             Text(text = "Navegar")
         }
+
+        Column(
+            modifier = Modifier.padding(top = 36.dp)
+        ) {
+            BotaoModular(faceIcon, "Biometria facial", navController, "biometriaFacial")
+            BotaoModular(fingerprintIcon, "Biometria digital", navController, "biometriaDigital")
+            BotaoModular(docIcon, "Documentoscopia", navController, "documentoscopia")
+            BotaoModular(swapIcon, "SIM SWAP", navController, "simSwap")
+            BotaoModular(authIcon, "Autenticação cadastral", navController, "autenticacaoCadastral")
+            BotaoModular(scoreIcon, "Score Antifraude", navController, "scoreAntiFraude")
+        }
+
     }
 }

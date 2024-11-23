@@ -34,10 +34,8 @@ fun ErrorScreen(navController: NavController) {
             contentDescription = null,
             contentScale = ContentScale.Fit,
             modifier = Modifier
-                .size(120.dp)
+                .size(220.dp)
         )
-
-        Spacer(modifier = Modifier.height(16.dp))
 
         Text(
             text = "Ooops! Não foi possível concluir a verificação!",
@@ -47,7 +45,6 @@ fun ErrorScreen(navController: NavController) {
                 color = Color(0xFF55575C),
                 lineHeight = 30.sp
             ),
-            modifier = Modifier.padding(top = 24.dp),
             textAlign = androidx.compose.ui.text.style.TextAlign.Center
         )
 
