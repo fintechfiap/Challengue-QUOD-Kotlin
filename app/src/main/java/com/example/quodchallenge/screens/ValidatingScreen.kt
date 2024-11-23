@@ -3,6 +3,7 @@ package com.example.quodchallenge.screens
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -19,7 +20,7 @@ import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BotaoModular
 
 @Composable
-fun ErrorScreen(navController: NavController) {
+fun ValidatingScreen(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxWidth(1.0f)
@@ -29,8 +30,9 @@ fun ErrorScreen(navController: NavController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
+
         Image(
-            painter = painterResource(id = R.drawable.error),
+            painter = painterResource(id = R.drawable.validating),
             contentDescription = null,
             contentScale = ContentScale.Fit,
             modifier = Modifier
@@ -40,7 +42,7 @@ fun ErrorScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(16.dp))
 
         Text(
-            text = "Ooops! Não foi possível concluir a verificação!",
+            text = "Verificação em análise!",
             style = TextStyle(
                 fontSize = 36.sp,
                 fontWeight = FontWeight.SemiBold,
@@ -52,30 +54,21 @@ fun ErrorScreen(navController: NavController) {
         )
 
         Text(
-            text = "Tente novamente ou entre em contato para suporte, caso necessário.",
+            text = "Fique tranquilo! Estamos processando suas informações. Aguarde um momento.",
             style = TextStyle(
                 fontSize = 24.sp,
                 lineHeight = 30.sp,
                 fontWeight = FontWeight.Medium,
                 color = Color(0xFF55575C),
             ),
-            modifier = Modifier.padding(top = 24.dp, bottom = 12.dp),
+            modifier = Modifier.padding(top = 24.dp, bottom = 48.dp),
             textAlign = androidx.compose.ui.text.style.TextAlign.Center
         )
 
-        Column(
-        ) {
-            BotaoModular(
-                icon = painterResource(R.drawable.arrow_back),
-                text = "Voltar para Home",
-                navController = navController,
-                rota = "home"
-            )
-            BotaoModular(
-                icon = painterResource(R.drawable.retry),
-                text = "Tentar Novamente",
-                navController = navController,
-            )
-        }
+        CircularProgressIndicator(
+            modifier = Modifier.size(48.dp),
+            color = Color(0xFF753CFD),
+            strokeWidth = 4.dp
+        )
     }
 }

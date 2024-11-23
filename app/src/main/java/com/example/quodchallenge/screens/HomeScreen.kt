@@ -72,6 +72,18 @@ fun HomeScreen(navController : NavController) {
             BotaoModular(scoreIcon, "Score Antifraude", navController, "scoreAntiFraude")
         }
 
+        Button( onClick = { navController.navigate("validating") }) {
+            Text(text = "Navegar")
+        }
+
+        Button( onClick = { navController.navigate("success") }) {
+            Text(text = "Navegar")
+        }
+
+        Button( onClick = { navController.navigate("failed") }) {
+            Text(text = "Navegar")
+        }
+
         Button( onClick = { navController.navigate("error") }) {
             Text(text = "Navegar")
         }

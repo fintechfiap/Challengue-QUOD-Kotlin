@@ -17,6 +17,7 @@ import com.example.quodchallenge.screens.ErrorScreen
 import com.example.quodchallenge.screens.FailedScreen
 import com.example.quodchallenge.screens.SuccessScreen
 import com.example.quodchallenge.screens.HomeScreen
+import com.example.quodchallenge.screens.ValidatingScreen
 import com.example.quodchallenge.ui.theme.QuodChallengeTheme
 
 class MainActivity : ComponentActivity() {
@@ -38,6 +39,9 @@ class MainActivity : ComponentActivity() {
                         ) {
                             composable("home") {
                                 HomeScreen(navController = navController)
+                            }
+                            composable("validating") {
+                                ValidatingScreen(navController = navController)
                             }
                             composable("success") {
                                 SuccessScreen(navController = navController)
