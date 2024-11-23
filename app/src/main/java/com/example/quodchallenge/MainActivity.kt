@@ -56,12 +56,15 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Greeting(modifier: Modifier = Modifier) {
+
     val image = painterResource(R.drawable.title)
+
     Column(
-        modifier = Modifier.padding(top = 35.dp)
+        modifier = Modifier
             .fillMaxWidth(1.0f)
             .fillMaxHeight(1.0f)
-            .background(color = Color.White),
+            .background(color = Color.White)
+            .padding(top = 55.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Image(
