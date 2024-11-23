@@ -7,18 +7,20 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.quodchallenge.screens.BiometriaFacilExplicacaoScreen
+import com.example.quodchallenge.screens.ErrorScreen
+import com.example.quodchallenge.screens.FailedScreen
+import com.example.quodchallenge.screens.SuccessScreen
+import com.example.quodchallenge.screens.BiometriaFacialExplicacaoScreen
 import com.example.quodchallenge.screens.HomeScreen
+import com.example.quodchallenge.screens.ValidatingScreen
 import com.example.quodchallenge.ui.theme.QuodChallengeTheme
 
 class MainActivity : ComponentActivity() {
-    @OptIn(ExperimentalMaterial3Api::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -38,7 +40,19 @@ class MainActivity : ComponentActivity() {
                                 HomeScreen(navController = navController)
                             }
                             composable("biometriaFacial") {
-                                BiometriaFacilExplicacaoScreen(navController = navController)
+                                BiometriaFacialExplicacaoScreen(navController = navController)
+                            }
+                            composable("validating") {
+                                ValidatingScreen(navController = navController)
+                            }
+                            composable("success") {
+                                SuccessScreen(navController = navController)
+                            }
+                            composable("failed") {
+                                FailedScreen(navController = navController)
+                            }
+                            composable("error") {
+                                ErrorScreen(navController = navController)
                             }
                         }
                     }
