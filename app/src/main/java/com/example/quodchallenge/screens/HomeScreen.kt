@@ -63,12 +63,12 @@ fun HomeScreen(navController : NavController) {
         Column(
             modifier = Modifier.padding(top = 36.dp)
         ) {
-            BotaoModular(faceIcon, "Biometria facial")
-            BotaoModular(fingerprintIcon, "Biometria digital")
-            BotaoModular(docIcon, "Documentoscopia")
-            BotaoModular(swapIcon, "SIM SWAP")
-            BotaoModular(authIcon, "Autenticação cadastral")
-            BotaoModular(scoreIcon, "Score Antifraude")
+            BotaoModular(faceIcon, "Biometria facial", navController, "biometriaFacial")
+            BotaoModular(fingerprintIcon, "Biometria digital", navController, "biometriaDigital")
+            BotaoModular(docIcon, "Documentoscopia", navController, "documentoscopia")
+            BotaoModular(swapIcon, "SIM SWAP", navController, "simSwap")
+            BotaoModular(authIcon, "Autenticação cadastral", navController, "autenticacaoCadastral")
+            BotaoModular(scoreIcon, "Score Antifraude", navController, "scoreAntiFraude")
         }
 
     }

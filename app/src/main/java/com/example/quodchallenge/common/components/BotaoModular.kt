@@ -18,11 +18,16 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @Composable
-fun BotaoModular(icon: Painter, text: String){
+fun BotaoModular(icon: Painter, text: String, navController: NavController? = null, rota: String? = null){
     Button(
-        onClick = {},
+        onClick = {
+            if (rota != null) {
+                navController?.navigate(rota)
+            }
+        },
         modifier = Modifier.padding(top = 36.dp).width(300.dp).height(55.dp),
         shape = RoundedCornerShape(5.dp),
         colors = ButtonDefaults.buttonColors(

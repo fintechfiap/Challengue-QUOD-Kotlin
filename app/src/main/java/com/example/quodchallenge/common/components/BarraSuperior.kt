@@ -14,5 +14,23 @@ import androidx.compose.ui.text.style.TextOverflow
 @Composable
 fun BarraSuperior(title : String){
 
-
+    CenterAlignedTopAppBar(
+        title = {
+            Text(
+                title,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis
+            )
+        },
+        navigationIcon = {
+            IconButton(
+                onClick = {}
+            ) {
+                Icon(
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = null
+                )
+            }
+        }
+    )
 }
