@@ -18,6 +18,9 @@ import com.example.quodchallenge.screens.DocumentoscopiaExplicacaoScreen
 import com.example.quodchallenge.screens.ErrorScreen
 import com.example.quodchallenge.screens.FailedScreen
 import com.example.quodchallenge.screens.HomeScreen
+import com.example.quodchallenge.screens.ScoreAntiFraudeExplicacaoScreen
+import com.example.quodchallenge.screens.SimSwapAuthScreen
+import com.example.quodchallenge.screens.SimSwapExplicacaoScreen
 import com.example.quodchallenge.screens.SuccessScreen
 import com.example.quodchallenge.screens.ValidatingScreen
 import com.example.quodchallenge.ui.theme.QuodChallengeTheme
@@ -61,6 +64,15 @@ class MainActivity : ComponentActivity() {
                             }
                             composable("documentoscopia") {
                                 DocumentoscopiaExplicacaoScreen(navController = navController)
+                            }
+                            composable("simSwap") {
+                                SimSwapExplicacaoScreen(navController = navController)
+                            }
+                            composable("simSwapAuth") {
+                                SimSwapAuthScreen(navController = navController)
+                            }
+                            composable("scoreAntiFraude") {
+                                ScoreAntiFraudeExplicacaoScreen(navController = navController)
                             }
                         }
                     }

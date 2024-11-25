@@ -61,21 +61,21 @@ fun HomeScreen(navController : NavController) {
         val authIcon = painterResource(R.drawable.auth)
         val scoreIcon = painterResource(R.drawable.score)
 
-        Button( onClick = { navController.navigate("validating") }) {
-            Text(text = "Navegar")
-        }
-
-        Button( onClick = { navController.navigate("success") }) {
-            Text(text = "Navegar")
-        }
-
-        Button( onClick = { navController.navigate("failed") }) {
-            Text(text = "Navegar")
-        }
-
-        Button( onClick = { navController.navigate("error") }) {
-            Text(text = "Navegar")
-        }
+//        Button( onClick = { navController.navigate("validating") }) {
+//            Text(text = "Navegar")
+//        }
+//
+//        Button( onClick = { navController.navigate("success") }) {
+//            Text(text = "Navegar")
+//        }
+//
+//        Button( onClick = { navController.navigate("failed") }) {
+//            Text(text = "Navegar")
+//        }
+//
+//        Button( onClick = { navController.navigate("error") }) {
+//            Text(text = "Navegar")
+//        }
 
         Column(
             modifier = Modifier.padding(top = 36.dp)
@@ -86,10 +86,6 @@ fun HomeScreen(navController : NavController) {
             BotaoModular(swapIcon, "SIM SWAP", navController, "simSwap")
             BotaoModular(authIcon, "Autenticação cadastral", navController, "autenticacaoCadastral")
             BotaoModular(scoreIcon, "Score Antifraude", navController, "scoreAntiFraude")
-        }
-
-        Button( onClick = { navController.navigate("failed") }) {
-            Text(text = "Navegar")
         }
     }
 }
