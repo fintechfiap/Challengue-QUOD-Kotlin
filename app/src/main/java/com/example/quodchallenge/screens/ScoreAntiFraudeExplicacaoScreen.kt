@@ -45,7 +45,7 @@ fun ScoreAntiFraudeExplicacaoScreen(navController: NavController){
             .fillMaxHeight(1.0f)
             .background(Color.White)
     ) {
-        BarraSuperior("Score Antifraude")
+        BarraSuperior("Score Antifraude", navController)
         Text(
             text = "Informe seu CPF para verificar o Score Antifraude. Um valor de 1 a 1000 será gerado, onde quanto maior o score, menor a chance de fraude.",
             style = TextStyle(
@@ -107,7 +107,6 @@ fun ScoreAntiFraudeExplicacaoScreen(navController: NavController){
         BotaoModular(
             icon = inquiryIcon,
             text = "Consultar",
-            navController = navController,
             onClick = {
                 score.value = (1..1000).random()
             }

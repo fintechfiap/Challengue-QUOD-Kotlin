@@ -27,6 +27,7 @@ import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BarraSuperior
 import com.example.quodchallenge.common.components.BotaoModular
+import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun CadastralExplicacaoScreen(navController: NavController){
@@ -40,7 +41,7 @@ fun CadastralExplicacaoScreen(navController: NavController){
             .fillMaxHeight(1.0f)
             .background(Color.White)
     ) {
-        BarraSuperior("Cadastral")
+        BarraSuperior("Cadastral", navController)
         Text(
             text = "Preencha seu CPF, nome, endereço e telefone celular para validar seus dados cadastrais. A validação garantirá a consistência e autenticidade das informações fornecidas.",
             style = TextStyle(
@@ -236,6 +237,6 @@ fun CadastralExplicacaoScreen(navController: NavController){
                 innerTextField()
             }
         )
-        BotaoModular(inquiryIcon, "Consultar", navController, "success")
+        BotaoModular(inquiryIcon, "Consultar", onClick = { navegarParaRota("sucess", navController) })
     }
 }

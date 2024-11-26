@@ -27,6 +27,7 @@ import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BarraSuperior
 import com.example.quodchallenge.common.components.BotaoModular
+import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun SimSwapExplicacaoScreen(navController: NavController){
@@ -40,7 +41,7 @@ fun SimSwapExplicacaoScreen(navController: NavController){
             .fillMaxHeight(1.0f)
             .background(Color.White)
     ) {
-        BarraSuperior("SIM SWAP")
+        BarraSuperior("SIM SWAP", navController)
         Text(
             text = "Informe seu número de telefone para verificar a existência de uma troca recente de chip. Essa validação ajuda a proteger sua conta contra possíveis fraudes.",
             style = TextStyle(
@@ -98,6 +99,6 @@ fun SimSwapExplicacaoScreen(navController: NavController){
                 innerTextField()
             }
         )
-        BotaoModular(arrowIcon, "Continuar", navController, "simSwapAuth")
+        BotaoModular(arrowIcon, "Continuar", onClick = { navegarParaRota("simSwapAuth", navController) })
     }
 }

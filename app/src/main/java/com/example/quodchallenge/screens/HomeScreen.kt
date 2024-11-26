@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
-import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BotaoModular
+import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun HomeScreen(navController : NavController) {
@@ -61,31 +61,16 @@ fun HomeScreen(navController : NavController) {
         val authIcon = painterResource(R.drawable.auth)
         val scoreIcon = painterResource(R.drawable.score)
 
-//        Button( onClick = { navController.navigate("validating") }) {
-//            Text(text = "Navegar")
-//        }
-//
-//        Button( onClick = { navController.navigate("success") }) {
-//            Text(text = "Navegar")
-//        }
-//
-//        Button( onClick = { navController.navigate("failed") }) {
-//            Text(text = "Navegar")
-//        }
-//
-//        Button( onClick = { navController.navigate("error") }) {
-//            Text(text = "Navegar")
-//        }
-
         Column(
             modifier = Modifier.padding(top = 36.dp)
         ) {
-            BotaoModular(faceIcon, "Biometria facial", navController, "biometriaFacial")
-            BotaoModular(fingerprintIcon, "Biometria digital", navController, "biometriaDigital")
-            BotaoModular(docIcon, "Documentoscopia", navController, "documentoscopia")
-            BotaoModular(swapIcon, "SIM SWAP", navController, "simSwap")
-            BotaoModular(authIcon, "Autenticação cadastral", navController, "cadastral")
-            BotaoModular(scoreIcon, "Score Antifraude", navController, "scoreAntiFraude")
+            BotaoModular(faceIcon, "Biometria facial", onClick = {navegarParaRota("biometriaFacial", navController)})
+            BotaoModular(fingerprintIcon, "Biometria digital", onClick = {navegarParaRota("biometriaDigital", navController)})
+            BotaoModular(docIcon, "Documentoscopia", onClick = {navegarParaRota("documentoscopia", navController)})
+            BotaoModular(swapIcon, "SIM SWAP", onClick = {navegarParaRota("simSwap", navController)})
+            BotaoModular(authIcon, "Autenticação cadastral", onClick = {navegarParaRota("cadastral", navController)})
+            BotaoModular(scoreIcon, "Score Antifraude", onClick = {navegarParaRota("scoreAntiFraude", navController)})
         }
     }
 }
+

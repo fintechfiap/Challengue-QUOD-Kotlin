@@ -21,7 +21,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BarraSuperior
-import com.example.quodchallenge.common.components.BotaoModular
 
 @Composable
 fun BiometriaDigitalExplicacaoScreen(navController: NavController){
@@ -33,7 +32,7 @@ fun BiometriaDigitalExplicacaoScreen(navController: NavController){
             .fillMaxHeight(1.0f)
             .background(Color.White)
     ) {
-        BarraSuperior("Biometria Digital")
+        BarraSuperior("Biometria Digital", navController)
         Text(
             text = "Coloque seu dedo no sensor para realizar a validação da biometria digital. ",
             style = TextStyle(

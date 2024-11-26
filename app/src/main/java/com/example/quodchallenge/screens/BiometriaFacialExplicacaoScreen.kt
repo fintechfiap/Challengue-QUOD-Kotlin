@@ -22,6 +22,7 @@ import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BarraSuperior
 import com.example.quodchallenge.common.components.BotaoModular
+import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun BiometriaFacialExplicacaoScreen(navController: NavController){
@@ -33,7 +34,7 @@ fun BiometriaFacialExplicacaoScreen(navController: NavController){
             .fillMaxHeight(1.0f)
             .background(Color.White)
     ) {
-        BarraSuperior("Biometria Facial")
+        BarraSuperior("Biometria Facial", navController)
         Text(
             text = "Posicione seu rosto na câmera para realizar a validação facial. Certifique-se de que está em um ambiente bem iluminado e com um fundo neutro.",
             style = TextStyle(
@@ -45,7 +46,7 @@ fun BiometriaFacialExplicacaoScreen(navController: NavController){
             ),
             modifier = Modifier.padding(top = 44.dp).width(353.dp).height(150.dp)
         )
-        BotaoModular(arrowIcon, "Continuar", navController, "biometriaFacialAuth")
+        BotaoModular(arrowIcon, "Continuar", onClick = {navegarParaRota("biometriaFacialAuth", navController)})
     }
 
 }

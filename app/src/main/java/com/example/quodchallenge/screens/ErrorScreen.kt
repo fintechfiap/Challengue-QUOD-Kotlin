@@ -2,7 +2,12 @@ package com.example.quodchallenge.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,6 +22,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BotaoModular
+import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun ErrorScreen(navController: NavController) {
@@ -65,13 +71,12 @@ fun ErrorScreen(navController: NavController) {
             BotaoModular(
                 icon = painterResource(R.drawable.arrow_back),
                 text = "Voltar para Home",
-                navController = navController,
-                rota = "home"
+                onClick = { navegarParaRota("home", navController) }
             )
             BotaoModular(
                 icon = painterResource(R.drawable.retry),
                 text = "Tentar Novamente",
-                navController = navController,
+                onClick = {}
             )
         }
     }

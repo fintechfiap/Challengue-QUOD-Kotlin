@@ -14,10 +14,11 @@ import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun BarraSuperior(title : String){
+fun BarraSuperior(title : String, navController: NavController){
 
     CenterAlignedTopAppBar(
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
@@ -39,7 +40,9 @@ fun BarraSuperior(title : String){
         },
         navigationIcon = {
             IconButton(
-                onClick = {}
+                onClick = {
+                    navController.popBackStack()
+                }
             ) {
                 Icon(
                     imageVector = Icons.AutoMirrored.Filled.ArrowBack,

@@ -27,6 +27,7 @@ import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BarraSuperior
 import com.example.quodchallenge.common.components.BotaoModular
+import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun SimSwapAuthScreen(navController: NavController){
@@ -40,7 +41,7 @@ fun SimSwapAuthScreen(navController: NavController){
             .fillMaxHeight(1.0f)
             .background(Color.White)
     ) {
-        BarraSuperior("SIM SWAP")
+        BarraSuperior("SIM SWAP", navController)
         Text(
             text = "Insira o código SMS enviado para validar seu número de telefone e concluir a verificação.",
             style = TextStyle(
@@ -98,6 +99,6 @@ fun SimSwapAuthScreen(navController: NavController){
                 innerTextField()
             }
         )
-        BotaoModular(inquiryIcon, "Consultar", navController, "success")
+        BotaoModular(inquiryIcon, "Consultar", onClick = { navegarParaRota("sucess", navController) })
     }
 }

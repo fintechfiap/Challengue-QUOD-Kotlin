@@ -22,6 +22,7 @@ import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BarraSuperior
 import com.example.quodchallenge.common.components.BotaoModular
+import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun DocumentoscopiaExplicacaoScreen(navController: NavController){
@@ -33,7 +34,7 @@ fun DocumentoscopiaExplicacaoScreen(navController: NavController){
             .fillMaxHeight(1.0f)
             .background(Color.White)
     ) {
-    BarraSuperior("Documentoscopia")
+    BarraSuperior("Documentoscopia", navController)
 
         Text(
             text = "Envie uma foto do seu documento para validação de autenticidade. Você pode capturar uma nova foto ou selecionar uma da galeria. Certifique-se de que a imagem está legível, fundo neutro e bem iluminado para uma análise mais precisa.",
@@ -52,7 +53,7 @@ fun DocumentoscopiaExplicacaoScreen(navController: NavController){
         val cameraIcon = painterResource(R.drawable.camera)
         val docIcon = painterResource(R.drawable.doc)
 
-        BotaoModular(cameraIcon, "Tirar foto", navController, "documentoscopiaAuth")
-        BotaoModular(docIcon, "Carregar documento", navController, "carregarDocumento")
+        BotaoModular(cameraIcon, "Tirar foto", onClick = { navegarParaRota("documentoscopiaAuth", navController) })
+        BotaoModular(docIcon, "Carregar documento", onClick = { navegarParaRota("carregarDocumento", navController) })
     }
 }

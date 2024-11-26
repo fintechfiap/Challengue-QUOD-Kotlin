@@ -13,6 +13,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.quodchallenge.screens.BiometriaDigitalExplicacaoScreen
+import com.example.quodchallenge.screens.BiometriaFacialAuthScreen
 import com.example.quodchallenge.screens.BiometriaFacialExplicacaoScreen
 import com.example.quodchallenge.screens.CadastralExplicacaoScreen
 import com.example.quodchallenge.screens.DocumentoscopiaExplicacaoScreen
@@ -48,8 +49,14 @@ class MainActivity : ComponentActivity() {
                             composable("biometriaFacial") {
                                 BiometriaFacialExplicacaoScreen(navController = navController)
                             }
+                            composable("biometriaFacialAuth") {
+                                BiometriaFacialAuthScreen(navController = navController)
+                            }
                             composable("biometriaDigital") {
                                 BiometriaDigitalExplicacaoScreen(navController = navController)
+                            }
+                            composable("biometriaDigitalAuth"){
+
                             }
                             composable("validating") {
                                 ValidatingScreen(navController = navController)
