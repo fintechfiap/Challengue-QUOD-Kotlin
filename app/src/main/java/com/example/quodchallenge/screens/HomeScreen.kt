@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BotaoModular
-import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun HomeScreen(navController : NavController) {
@@ -64,12 +63,12 @@ fun HomeScreen(navController : NavController) {
         Column(
             modifier = Modifier.padding(top = 36.dp)
         ) {
-            BotaoModular(faceIcon, "Biometria facial", onClick = {navegarParaRota("biometriaFacial", navController)})
-            BotaoModular(fingerprintIcon, "Biometria digital", onClick = {navegarParaRota("biometriaDigital", navController)})
-            BotaoModular(docIcon, "Documentoscopia", onClick = {navegarParaRota("documentoscopia", navController)})
-            BotaoModular(swapIcon, "SIM SWAP", onClick = {navegarParaRota("simSwap", navController)})
-            BotaoModular(authIcon, "Autenticação cadastral", onClick = {navegarParaRota("cadastral", navController)})
-            BotaoModular(scoreIcon, "Score Antifraude", onClick = {navegarParaRota("scoreAntiFraude", navController)})
+            BotaoModular(faceIcon, "Biometria facial", onClick = {navController.navigate("biometriaFacial")})
+            BotaoModular(fingerprintIcon, "Biometria digital", onClick = {navController.navigate("biometriaDigital")})
+            BotaoModular(docIcon, "Documentoscopia", onClick = {navController.navigate("documentoscopia")})
+            BotaoModular(swapIcon, "SIM SWAP", onClick = {navController.navigate("simSwap")})
+            BotaoModular(authIcon, "Autenticação cadastral", onClick = {navController.navigate("cadastral")})
+            BotaoModular(scoreIcon, "Score Antifraude", onClick = {navController.navigate("scoreAntiFraude")})
         }
     }
 }

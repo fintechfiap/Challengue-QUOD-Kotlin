@@ -22,7 +22,6 @@ import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BarraSuperior
 import com.example.quodchallenge.common.components.BotaoModular
-import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun DocumentoscopiaExplicacaoScreen(navController: NavController){
@@ -53,7 +52,7 @@ fun DocumentoscopiaExplicacaoScreen(navController: NavController){
         val cameraIcon = painterResource(R.drawable.camera)
         val docIcon = painterResource(R.drawable.doc)
 
-        BotaoModular(cameraIcon, "Tirar foto", onClick = { navegarParaRota("documentoscopiaAuth", navController) })
-        BotaoModular(docIcon, "Carregar documento", onClick = { navegarParaRota("carregarDocumento", navController) })
+        BotaoModular(cameraIcon, "Tirar foto", onClick = { navController.navigate("documentoscopiaAuth") })
+        BotaoModular(docIcon, "Carregar documento", onClick = { navController.navigate("carregarDocumento") })
     }
 }

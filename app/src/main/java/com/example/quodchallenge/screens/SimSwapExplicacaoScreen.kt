@@ -27,7 +27,6 @@ import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BarraSuperior
 import com.example.quodchallenge.common.components.BotaoModular
-import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun SimSwapExplicacaoScreen(navController: NavController){
@@ -99,6 +98,6 @@ fun SimSwapExplicacaoScreen(navController: NavController){
                 innerTextField()
             }
         )
-        BotaoModular(arrowIcon, "Continuar", onClick = { navegarParaRota("simSwapAuth", navController) })
+        BotaoModular(arrowIcon, "Continuar", onClick = { navController.navigate("simSwapAuth") })
     }
 }

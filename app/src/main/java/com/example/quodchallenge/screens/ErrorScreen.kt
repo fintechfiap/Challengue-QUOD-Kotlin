@@ -22,7 +22,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BotaoModular
-import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun ErrorScreen(navController: NavController) {
@@ -71,7 +70,7 @@ fun ErrorScreen(navController: NavController) {
             BotaoModular(
                 icon = painterResource(R.drawable.arrow_back),
                 text = "Voltar para Home",
-                onClick = { navegarParaRota("home", navController) }
+                onClick = { navController.navigate("home") }
             )
             BotaoModular(
                 icon = painterResource(R.drawable.retry),

@@ -1,5 +1,10 @@
 package com.example.quodchallenge.screens
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.widget.Toast
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -12,21 +17,37 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BarraSuperior
 import com.example.quodchallenge.common.components.BotaoModular
-import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun BiometriaFacialExplicacaoScreen(navController: NavController){
     val arrowIcon = painterResource(R.drawable.arrow_forward)
+
+    val contexto = LocalContext.current
+
+    val promptPermissao = rememberLauncherForActivityResult(
+        ActivityResultContracts
+            .RequestPermission()) {
+        if(it) {
+            Toast.makeText(contexto, "Permissão de câmera concedida", Toast.LENGTH_SHORT).show()
+        }
+        else {
+            Toast.makeText(contexto, "Permissão de câmera negada", Toast.LENGTH_SHORT).show()
+        }
+
+    }
+
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = Modifier
@@ -46,7 +67,17 @@ fun BiometriaFacialExplicacaoScreen(navController: NavController){
             ),
             modifier = Modifier.padding(top = 44.dp).width(353.dp).height(150.dp)
         )
-        BotaoModular(arrowIcon, "Continuar", onClick = {navegarParaRota("biometriaFacialAuth", navController)})
+        BotaoModular(arrowIcon, "Continuar", onClick = {
+
+            val verificarPermissao = ContextCompat.checkSelfPermission(contexto, Manifest.permission.CAMERA)
+            if(verificarPermissao == PackageManager.PERMISSION_GRANTED){
+                navController.navigate("biometriaFacialAuth")
+            }
+            else{
+                promptPermissao.launch(Manifest.permission.CAMERA)
+            }
+
+        })
     }
 
 }

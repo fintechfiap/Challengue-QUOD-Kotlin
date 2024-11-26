@@ -27,7 +27,6 @@ import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BarraSuperior
 import com.example.quodchallenge.common.components.BotaoModular
-import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun CadastralExplicacaoScreen(navController: NavController){
@@ -237,6 +236,6 @@ fun CadastralExplicacaoScreen(navController: NavController){
                 innerTextField()
             }
         )
-        BotaoModular(inquiryIcon, "Consultar", onClick = { navegarParaRota("sucess", navController) })
+        BotaoModular(inquiryIcon, "Consultar", onClick = { navController.navigate("success") })
     }
 }

@@ -24,7 +24,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BotaoModular
-import com.example.quodchallenge.common.services.navegarParaRota
 
 @Composable
 fun SuccessScreen(navController: NavController) {
@@ -75,7 +74,7 @@ fun SuccessScreen(navController: NavController) {
         BotaoModular(
             icon = painterResource(R.drawable.arrow_back),
             text = "Voltar para Home",
-            onClick = { navegarParaRota("home", navController) }
+            onClick = { navController.navigate("home") }
         )
     }
 }
