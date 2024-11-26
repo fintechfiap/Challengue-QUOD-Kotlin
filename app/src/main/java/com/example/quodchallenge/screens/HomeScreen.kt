@@ -84,7 +84,7 @@ fun HomeScreen(navController : NavController) {
             BotaoModular(fingerprintIcon, "Biometria digital", navController, "biometriaDigital")
             BotaoModular(docIcon, "Documentoscopia", navController, "documentoscopia")
             BotaoModular(swapIcon, "SIM SWAP", navController, "simSwap")
-            BotaoModular(authIcon, "Autenticação cadastral", navController, "autenticacaoCadastral")
+            BotaoModular(authIcon, "Autenticação cadastral", navController, "cadastral")
             BotaoModular(scoreIcon, "Score Antifraude", navController, "scoreAntiFraude")
         }
     }

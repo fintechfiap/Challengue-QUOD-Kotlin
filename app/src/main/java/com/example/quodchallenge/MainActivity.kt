@@ -14,6 +14,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.quodchallenge.screens.BiometriaDigitalExplicacaoScreen
 import com.example.quodchallenge.screens.BiometriaFacialExplicacaoScreen
+import com.example.quodchallenge.screens.CadastralExplicacaoScreen
 import com.example.quodchallenge.screens.DocumentoscopiaExplicacaoScreen
 import com.example.quodchallenge.screens.ErrorScreen
 import com.example.quodchallenge.screens.FailedScreen
@@ -73,6 +74,9 @@ class MainActivity : ComponentActivity() {
                             }
                             composable("scoreAntiFraude") {
                                 ScoreAntiFraudeExplicacaoScreen(navController = navController)
+                            }
+                            composable("cadastral") {
+                                CadastralExplicacaoScreen(navController = navController)
                             }
                         }
                     }

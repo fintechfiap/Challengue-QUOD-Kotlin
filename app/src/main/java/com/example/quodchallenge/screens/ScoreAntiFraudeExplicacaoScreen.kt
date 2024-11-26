@@ -1,12 +1,15 @@
 package com.example.quodchallenge.screens
 
+import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Text
@@ -17,6 +20,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.SolidColor
+import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
@@ -32,6 +36,7 @@ import com.example.quodchallenge.common.components.BotaoModular
 fun ScoreAntiFraudeExplicacaoScreen(navController: NavController){
     val inquiryIcon = painterResource(R.drawable.inquiry)
     val phoneNumber = remember { mutableStateOf("") }
+    val score = remember { mutableStateOf<Int?>(null) } // Para armazenar o score gerado
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -98,6 +103,83 @@ fun ScoreAntiFraudeExplicacaoScreen(navController: NavController){
                 innerTextField()
             }
         )
-        BotaoModular(inquiryIcon, "Consultar", navController, "")
+
+        BotaoModular(
+            icon = inquiryIcon,
+            text = "Consultar",
+            navController = navController,
+            onClick = {
+                score.value = (1..1000).random()
+            }
+        )
+
+        Spacer(modifier = Modifier.height(24.dp))
+
+        score.value?.let { generatedScore ->
+            ScoreDisplay(generatedScore)
+        }
+    }
+}
+
+@Composable
+fun ScoreDisplay(score: Int) {
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.padding(top = 24.dp)
+    ) {
+        CircularScoreIndicator(score = score)
+
+        Spacer(modifier = Modifier.height(16.dp))
+
+        Text(
+            text = "$score de 1000",
+            style = TextStyle(fontSize = 32.sp, fontWeight = FontWeight.Bold, color = Color.Black)
+        )
+
+        val riskLevel = when {
+            score > 750 -> "Baixo"
+            score in 500..750 -> "Médio"
+            else -> "Alto"
+        }
+
+        val paymentProbability = when {
+            score > 750 -> "100%"
+            score in 500..750 -> "70%"
+            else -> "30%"
+        }
+
+        Spacer(modifier = Modifier.height(8.dp))
+
+        Text(
+            text = "Risco de Crédito: $riskLevel",
+            style = TextStyle(fontSize = 18.sp, color = Color.Black)
+        )
+        Text(
+            text = "Probabilidade de Pagamento: $paymentProbability",
+            style = TextStyle(fontSize = 18.sp, color = Color.Black)
+        )
+    }
+}
+
+@Composable
+fun CircularScoreIndicator(score: Int) {
+    Canvas(
+        modifier = Modifier.size(200.dp)
+    ) {
+        val sweepAngle = (score / 1000f) * 360f
+        drawArc(
+            color = Color(0xFFECEEED),
+            startAngle = -90f,
+            sweepAngle = 360f,
+            useCenter = false,
+            style = Stroke(width = 16.dp.toPx())
+        )
+        drawArc(
+            color = Color(0xFF1BA456),
+            startAngle = -90f,
+            sweepAngle = sweepAngle,
+            useCenter = false,
+            style = Stroke(width = 16.dp.toPx())
+        )
     }
 }

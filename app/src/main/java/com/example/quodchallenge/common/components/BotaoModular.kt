@@ -25,12 +25,15 @@ fun BotaoModular(
     icon: Painter? = null,
     text: String, navController:
     NavController? = null,
-    rota: String? = null
+    rota: String? = null,
+    onClick: (() -> Unit)? = null
 )
 {
     Button(
         onClick = {
-            if (rota != null) {
+            if (onClick != null) {
+                onClick()
+            } else if (rota != null) {
                 navController?.navigate(rota)
             }
         },
