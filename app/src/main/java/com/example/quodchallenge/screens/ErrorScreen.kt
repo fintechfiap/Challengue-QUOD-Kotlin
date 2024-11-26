@@ -75,7 +75,7 @@ fun ErrorScreen(navController: NavController) {
             BotaoModular(
                 icon = painterResource(R.drawable.retry),
                 text = "Tentar Novamente",
-                onClick = {}
+                onClick = { navController.navigate("home") }
             )
         }
     }

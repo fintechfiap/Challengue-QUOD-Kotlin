@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.*
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,10 +18,22 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.quodchallenge.R
+import kotlinx.coroutines.delay
 import com.example.quodchallenge.common.components.BotaoModular
 
 @Composable
 fun ValidatingScreen(navController: NavController) {
+
+    LaunchedEffect(Unit) {
+        delay(3000)
+        val isSuccess = (0..1).random() == 1
+        if (isSuccess) {
+            navController.navigate("success")
+        } else {
+            navController.navigate("failed")
+        }
+    }
+
     Column(
         modifier = Modifier
             .fillMaxWidth(1.0f)

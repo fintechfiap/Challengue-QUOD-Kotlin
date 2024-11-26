@@ -98,6 +98,6 @@ fun SimSwapAuthScreen(navController: NavController){
                 innerTextField()
             }
         )
-        BotaoModular(inquiryIcon, "Consultar", onClick = { navController.navigate("success") })
+        BotaoModular(inquiryIcon, "Consultar", onClick = { navController.navigate("validating") })
     }
 }
