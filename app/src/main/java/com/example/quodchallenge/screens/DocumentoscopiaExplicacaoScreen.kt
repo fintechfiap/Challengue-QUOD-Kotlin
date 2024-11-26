@@ -1,5 +1,7 @@
 package com.example.quodchallenge.screens
 
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
@@ -25,6 +27,9 @@ import com.example.quodchallenge.common.components.BotaoModular
 
 @Composable
 fun DocumentoscopiaExplicacaoScreen(navController: NavController){
+    val galleryLauncher = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
+        uri?.let {  }
+    }
 
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -53,6 +58,8 @@ fun DocumentoscopiaExplicacaoScreen(navController: NavController){
         val docIcon = painterResource(R.drawable.doc)
 
         BotaoModular(cameraIcon, "Tirar foto", onClick = { navController.navigate("documentoscopiaAuth") })
-        BotaoModular(docIcon, "Carregar documento", onClick = { navController.navigate("carregarDocumento") })
+        BotaoModular(docIcon, "Carregar documento", onClick = {
+            galleryLauncher.launch("image/*")
+        })
     }
 }
