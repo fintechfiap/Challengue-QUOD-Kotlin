@@ -67,8 +67,9 @@ fun BiometriaFacialExplicacaoScreen(navController: NavController){
             ),
             modifier = Modifier.padding(top = 44.dp).width(353.dp).height(150.dp)
         )
-        BotaoModular(arrowIcon, "Continuar", onClick = {
+        val cameraIcon = painterResource(R.drawable.camera)
 
+        BotaoModular(text = "Iniciar captura", icon = cameraIcon, onClick = {
             val verificarPermissao = ContextCompat.checkSelfPermission(contexto, Manifest.permission.CAMERA)
             if(verificarPermissao == PackageManager.PERMISSION_GRANTED){
                 navController.navigate("biometriaFacialAuth")
@@ -76,8 +77,10 @@ fun BiometriaFacialExplicacaoScreen(navController: NavController){
             else{
                 promptPermissao.launch(Manifest.permission.CAMERA)
             }
-
         })
+
+
+
     }
 
 }

@@ -16,6 +16,7 @@ import com.example.quodchallenge.screens.BiometriaDigitalExplicacaoScreen
 import com.example.quodchallenge.screens.BiometriaFacialAuthScreen
 import com.example.quodchallenge.screens.BiometriaFacialExplicacaoScreen
 import com.example.quodchallenge.screens.CadastralExplicacaoScreen
+import com.example.quodchallenge.screens.DocumentoscopiaAuthScreen
 import com.example.quodchallenge.screens.DocumentoscopiaExplicacaoScreen
 import com.example.quodchallenge.screens.ErrorScreen
 import com.example.quodchallenge.screens.FailedScreen
@@ -72,6 +73,9 @@ class MainActivity : ComponentActivity() {
                             }
                             composable("documentoscopia") {
                                 DocumentoscopiaExplicacaoScreen(navController = navController)
+                            }
+                            composable("documentoscopiaAuth") {
+                                DocumentoscopiaAuthScreen(navController = navController)
                             }
                             composable("simSwap") {
                                 SimSwapExplicacaoScreen(navController = navController)

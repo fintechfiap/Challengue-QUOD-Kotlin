@@ -1,5 +1,8 @@
 package com.example.quodchallenge.screens
 
+import android.Manifest
+import android.content.pm.PackageManager
+import android.widget.Toast
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.background
@@ -14,12 +17,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.core.content.ContextCompat
 import androidx.navigation.NavController
 import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BarraSuperior
@@ -29,6 +34,20 @@ import com.example.quodchallenge.common.components.BotaoModular
 fun DocumentoscopiaExplicacaoScreen(navController: NavController){
     val galleryLauncher = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
         uri?.let {  }
+    }
+
+    val contexto = LocalContext.current
+
+    val promptPermissao = rememberLauncherForActivityResult(
+        ActivityResultContracts
+            .RequestPermission()) {
+        if(it) {
+            Toast.makeText(contexto, "Permissão de câmera concedida", Toast.LENGTH_SHORT).show()
+        }
+        else {
+            Toast.makeText(contexto, "Permissão de câmera negada", Toast.LENGTH_SHORT).show()
+        }
+
     }
 
     Column(
@@ -54,10 +73,18 @@ fun DocumentoscopiaExplicacaoScreen(navController: NavController){
                 .width(353.dp)
                 .height(240.dp)
         )
-        val cameraIcon = painterResource(R.drawable.camera)
         val docIcon = painterResource(R.drawable.doc)
+        val cameraIcon = painterResource(R.drawable.camera)
 
-        BotaoModular(cameraIcon, "Tirar foto", onClick = { navController.navigate("documentoscopiaAuth") })
+        BotaoModular(text = "Tirar foto", icon = cameraIcon, onClick = {
+            val verificarPermissao = ContextCompat.checkSelfPermission(contexto, Manifest.permission.CAMERA)
+            if(verificarPermissao == PackageManager.PERMISSION_GRANTED){
+                navController.navigate("documentoscopiaAuth")
+            }
+            else{
+                promptPermissao.launch(Manifest.permission.CAMERA)
+            }
+        })
         BotaoModular(docIcon, "Carregar documento", onClick = {
             galleryLauncher.launch("image/*")
         })
