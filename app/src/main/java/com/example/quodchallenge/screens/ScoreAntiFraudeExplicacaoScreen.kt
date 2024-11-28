@@ -1,5 +1,7 @@
 package com.example.quodchallenge.screens
 
+import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -14,8 +16,11 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.text.BasicTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -162,10 +167,22 @@ fun ScoreDisplay(score: Int) {
 
 @Composable
 fun CircularScoreIndicator(score: Int) {
+    var animatedSweepAngle by remember { mutableStateOf(0f) }
+
+    LaunchedEffect(score) {
+        animatedSweepAngle = (score / 1000f) * 360f
+    }
+
+    val sweepAngle by animateFloatAsState(
+        targetValue = animatedSweepAngle,
+        animationSpec = tween(durationMillis = 1000)
+    )
+
+    val progressColor = if (score < 400) Color.Red else Color(0xFF1BA456)
+
     Canvas(
         modifier = Modifier.size(200.dp)
     ) {
-        val sweepAngle = (score / 1000f) * 360f
         drawArc(
             color = Color(0xFFECEEED),
             startAngle = -90f,
@@ -174,7 +191,7 @@ fun CircularScoreIndicator(score: Int) {
             style = Stroke(width = 16.dp.toPx())
         )
         drawArc(
-            color = Color(0xFF1BA456),
+            color = progressColor,
             startAngle = -90f,
             sweepAngle = sweepAngle,
             useCenter = false,
