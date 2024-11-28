@@ -33,7 +33,9 @@ import com.example.quodchallenge.common.components.BotaoModular
 @Composable
 fun DocumentoscopiaExplicacaoScreen(navController: NavController){
     val galleryLauncher = rememberLauncherForActivityResult(ActivityResultContracts.GetContent()) { uri ->
-        uri?.let {  }
+        uri?.let {
+            navController.navigate("validating")
+        }
     }
 
     val contexto = LocalContext.current

@@ -54,7 +54,7 @@ fun DocumentoscopiaAuthScreen(navController: NavController){
         val cameraIcon = painterResource(R.drawable.camera)
 
         BotaoModular(icon = cameraIcon, text = "Tirar foto", onClick = {
-            navController.navigate("success")
+            navController.navigate("validating")
         })
     }
 }

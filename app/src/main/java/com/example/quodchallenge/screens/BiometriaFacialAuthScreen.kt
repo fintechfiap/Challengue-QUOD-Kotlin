@@ -19,13 +19,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.quodchallenge.R
 import com.example.quodchallenge.common.components.BarraSuperior
+import com.example.quodchallenge.common.components.BotaoModular
 import com.example.quodchallenge.common.components.CameraX
 import kotlinx.coroutines.delay
 
@@ -97,10 +100,16 @@ fun BiometriaFacialAuthScreen(navController: NavController){
                         fontSize = 16.sp,
                         lineHeight = 16.sp,
                         fontWeight = FontWeight(400),
-                        color = Color(0xFF000000),
+                        color = Color(0xFFECEEED),
                     )
                 )
             }
+
+            BotaoModular(
+                icon = painterResource(R.drawable.arrow_back),
+                text = "Voltar para Home",
+                onClick = { navController.navigate("home") }
+            )
         }
     }
 

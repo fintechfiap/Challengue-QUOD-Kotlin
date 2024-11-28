@@ -31,6 +31,9 @@ import com.example.quodchallenge.common.components.BotaoModular
 @Composable
 fun CadastralExplicacaoScreen(navController: NavController){
     val inquiryIcon = painterResource(R.drawable.inquiry)
+    val name = remember { mutableStateOf("") }
+    val cpf = remember { mutableStateOf("") }
+    val address = remember { mutableStateOf("") }
     val phoneNumber = remember { mutableStateOf("") }
 
     Column(
@@ -65,8 +68,8 @@ fun CadastralExplicacaoScreen(navController: NavController){
         )
 
         BasicTextField(
-            value = phoneNumber.value,
-            onValueChange = { phoneNumber.value = it },
+            value = name.value,
+            onValueChange = { name.value = it },
             textStyle = TextStyle(
                 fontSize = 16.sp,
                 color = Color(0xFF55575C)
@@ -86,7 +89,7 @@ fun CadastralExplicacaoScreen(navController: NavController){
                 .padding(horizontal = 12.dp, vertical = 16.dp),
             cursorBrush = SolidColor(Color(0xFF753CFD)),
             decorationBox = { innerTextField ->
-                if (phoneNumber.value.isEmpty()) {
+                if (name.value.isEmpty()) {
                     Text(
                         text = "Digite o Nome",
                         style = TextStyle(
@@ -111,8 +114,8 @@ fun CadastralExplicacaoScreen(navController: NavController){
         )
 
         BasicTextField(
-            value = phoneNumber.value,
-            onValueChange = { phoneNumber.value = it },
+            value = cpf.value,
+            onValueChange = { cpf.value = it },
             textStyle = TextStyle(
                 fontSize = 16.sp,
                 color = Color(0xFF55575C)
@@ -132,7 +135,7 @@ fun CadastralExplicacaoScreen(navController: NavController){
                 .padding(horizontal = 12.dp, vertical = 16.dp),
             cursorBrush = SolidColor(Color(0xFF753CFD)),
             decorationBox = { innerTextField ->
-                if (phoneNumber.value.isEmpty()) {
+                if (cpf.value.isEmpty()) {
                     Text(
                         text = "Digite o CPF",
                         style = TextStyle(
@@ -157,8 +160,8 @@ fun CadastralExplicacaoScreen(navController: NavController){
         )
 
         BasicTextField(
-            value = phoneNumber.value,
-            onValueChange = { phoneNumber.value = it },
+            value = address.value,
+            onValueChange = { address.value = it },
             textStyle = TextStyle(
                 fontSize = 16.sp,
                 color = Color(0xFF55575C)
@@ -178,7 +181,7 @@ fun CadastralExplicacaoScreen(navController: NavController){
                 .padding(horizontal = 12.dp, vertical = 16.dp),
             cursorBrush = SolidColor(Color(0xFF753CFD)),
             decorationBox = { innerTextField ->
-                if (phoneNumber.value.isEmpty()) {
+                if (address.value.isEmpty()) {
                     Text(
                         text = "Digite o Endereço",
                         style = TextStyle(
